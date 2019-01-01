@@ -79,6 +79,26 @@ whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "
 
 
 
+
+/*
+Directions:
+  Convert a string to spinal case. Spinal case is all-lowercase-words-joined-by-dashes.
+
+Approach:
+    Create a regex that captures spaces, underscores, and the character before a capital letter.
+    Split with regex, join with dashes, toLowerCase
+                Note: I came up with the solution but googled around for the space-before-capital bit
+*/
+function spinalCase(str) {
+    const regex = /\s|_|(?=[A-Z])/;
+    return str.split(regex).join('-').toLowerCase();
+  }
+  
+
+spinalCase('This Is Spinal Tap');
+
+
+
 /*
 Directions:
     Find the average imdbRating of Christopher Nolan's movies
