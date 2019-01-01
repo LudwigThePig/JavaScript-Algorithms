@@ -1,11 +1,14 @@
 /*
+**********************************************
 Extra-easy algorithms from freeCodeCamp
-    fast easy reps to solidify the foundation
+    fast easy reps to solidify the foundations
+**********************************************
 */
 
 
 /*
-Find sum of all numbers in the range arr[0], arr[1]
+Directions:
+    Find sum of all numbers in the range arr[0], arr[1]
 */
 function sumAll(arr) {
     let acc = 0;
@@ -17,7 +20,8 @@ function sumAll(arr) {
 sumAll([1, 4]);
 
 /*
-Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
+Directions:
+    Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. In other words, return the symmetric difference of the two arrays.
 
 APPROACH:
   Concat the the two arrays
@@ -32,11 +36,30 @@ function diffArray(arr1, arr2) {
     
   diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
+/*
+Directions:
+    You will be provided with an initial array (the first argument in the destroyer function), followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+Approach:
+  Create an array of the seeker arguments.
+  filter the arr for items that are not in that args
+
+  REVIST AND RETEST PLEASE
+*/
+function destroyer(arr) {
+    let args = Array.prototype.slice.call(arguments, 1);
+    return arr.filter(item => !args.includes(item));
+  }
+  
+  destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+
+
 
 
 /*
-Find the average imdbRating of Christopher Nolan's movies
-USING REDUCE
+Directions:
+    Find the average imdbRating of Christopher Nolan's movies
+Approach:
+    USING REDUCE
 */
 var watchList = [
     {  
