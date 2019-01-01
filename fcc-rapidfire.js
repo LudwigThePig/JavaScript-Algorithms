@@ -93,10 +93,37 @@ function spinalCase(str) {
     const regex = /\s|_|(?=[A-Z])/;
     return str.split(regex).join('-').toLowerCase();
   }
-  
-
 spinalCase('This Is Spinal Tap');
 
+
+
+
+/*
+Directions: Translate to Pig Latin!
+    Pig Latin takes the first consonant (or consonant cluster) of an English word, moves it to the end of the word and suffixes an "ay".
+    If a word begins with a vowel you just add "way" to the end.
+Approach:
+  Declare string to return, pigLatin
+  Check if the first letter is a vowel. If true, pig latin will equal the virgin string + 'way'
+  Check if there are no vowels. If true, pigLatin will equal virgin + 'ay'
+  If not, we need to find out how many consonants are at the begining of string OR find the index of the first vowel!
+
+*/
+function translatePigLatin(str) {
+    let pigLatin;
+    if (str[0].match(/[aeiou]/)){
+      pigLatin = str + 'way';
+    } else if (!str.match(/[aeiou]/)) {
+      pigLatin = str + 'ay';
+    } else {
+      let firstVowel = str.indexOf(str.match(/[aeiou]/));
+      pigLatin = str.slice(firstVowel) + str.slice(0, firstVowel) + 'ay';
+    }
+    return pigLatin
+    }
+  
+  translatePigLatin("cry");
+translatePigLatin("consonant");
 
 
 /*
