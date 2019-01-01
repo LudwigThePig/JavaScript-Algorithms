@@ -32,8 +32,7 @@ APPROACH:
 */
 function diffArray(arr1, arr2) {
     return arr1.concat(arr2).filter(item => !arr1.includes(item) || !arr2.includes(item));  
-  }
-    
+  }  
   diffArray([1, 2, 3, 5], [1, 2, 3, 4, 5]);
 
 /*
@@ -43,15 +42,40 @@ Approach:
   Create an array of the seeker arguments.
   filter the arr for items that are not in that args
 
-  REVIST AND RETEST PLEASE
+  ***********REVIST AND REFRESH PLEASE***********
 */
 function destroyer(arr) {
     let args = Array.prototype.slice.call(arguments, 1);
     return arr.filter(item => !args.includes(item));
   }
-  
-  destroyer([1, 2, 3, 1, 2, 3], 2, 3);
+destroyer([1, 2, 3, 1, 2, 3], 2, 3);
 
+
+/*
+Directions:
+    Make a function that looks through an array of objects (first argument) and returns an array of all objects that have matching name and value pairs (second argument). Each name and value pair of the source object has to be present in the object from the collection if it is to be included in the returned array.
+Approach:
+  Get keys for source
+  Start with a filter
+    Within that filter, we assign a bool that indicates a match.
+    Then reduce all the bools to one bool that passes through the filter
+*/
+function whatIsInAName(collection, source) {
+    // What's in a name?
+    var arr = [];
+    // Only change code below this line
+
+    var srcKeys = Object.keys(source);
+
+    arr = collection
+        .filter(item => srcKeys
+        .map(key => item.hasOwnProperty(key) && item[key] === source[key])
+        .reduce((acc, cur) => acc && cur));
+
+    // Only change code above this line
+    return arr;
+  }
+whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 })
 
 
 
