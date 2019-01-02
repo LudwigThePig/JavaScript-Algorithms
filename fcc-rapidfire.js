@@ -125,6 +125,41 @@ function translatePigLatin(str) {
   translatePigLatin("cry");
 translatePigLatin("consonant");
 
+/*
+Directions:
+  Given the array arr, iterate through and remove each element starting from the first element (the 0 index) until the function func returns true when the iterated element is passed through it.
+  Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+Approach:
+    Loop through the array until the array is either empty or the iterated item passes the callback function.
+    Shift the array one place with every loop.
+*/
+function dropElements(arr, func) {
+
+  while( arr.length > 0 && !func(arr[0])){
+    arr.shift()
+  }
+  return arr;
+}
+
+dropElements([0, 1, 0, 1], function(n) {return n === 1;})
+
+/*
+Directions:
+    Convert a string, containing a sentence, into a URL slug.
+      Words seperated by dashes, no whitespace, and everything is lowercase
+*/
+// the global variable
+var globalTitle = "Winter Is Coming";
+
+// Add your code below this line
+function urlSlug(title) {
+  return title.split(/\W/).filter(x => x !== "").join("-").toLowerCase();
+  
+}
+// Add your code above this line
+
+var winterComing = urlSlug(globalTitle); // Should be "winter-is-coming"
+
 
 
 /*
