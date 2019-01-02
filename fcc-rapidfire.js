@@ -126,6 +126,43 @@ function translatePigLatin(str) {
 translatePigLatin("consonant");
 
 
+
+/*
+Directions:
+    Replicate .map() with a for loop or .forEach()
+*/
+var s = [23, 65, 98, 5];
+
+Array.prototype.myMap = function(callback){
+  var newArray = [];
+
+  for (let i = 0; i<this.length; i++){
+    newArray.push(callback(this[i]));
+  }
+  return newArray;
+};
+
+
+
+
+/*
+Directions:
+    Replicate .filter() with a for loop or .forEach()
+*/
+var s = [23, 65, 98, 5];
+
+Array.prototype.myFilter = function(callback){
+  var newArray = [];
+  for (let i = 0; i < this.length; i++){
+    if (callback(this[i])){
+      newArray.push(this[i]);
+    }
+  }
+  return newArray;
+};
+
+
+
 /*
 Directions:
     Find the average imdbRating of Christopher Nolan's movies
